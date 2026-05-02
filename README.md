@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NoteHub — 09 Auth
 
-## Getting Started
+A note management application built with Next.js App Router.  
+This version adds authentication, protected routes, user profile pages, and cookie-based session handling.
 
-First, run the development server:
+## Repository
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+https://github.com/Larimar4you/09-auth
+
+## Technologies
+
+- Next.js
+- React
+- TypeScript
+- Axios
+- TanStack Query
+- Zustand
+- CSS Modules
+- Vercel
+
+## Features
+
+- User registration
+- User login
+- User logout
+- Cookie-based authentication
+- Protected private routes
+- Public auth routes
+- User profile page
+- Edit profile page
+- Notes list with search, pagination, and tag filtering
+- Note details page
+- Create note page
+- Draft saving with Zustand
+- SSR and CSR support
+
+## Project Structure
+
+```txt
+app/
+  (auth routes)/
+  (private routes)/
+  api/
+components/
+lib/
+  api/
+  store/
+types/
+
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create .env.local in the project root:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+NEXT_PUBLIC_API_URL=http://localhost:3000
 
-## Learn More
+For Vercel, set:
 
-To learn more about Next.js, take a look at the following resources:
+NEXT_PUBLIC_API_URL=https://your-project-name.vercel.app
+Getting Started
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Install dependencies:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+npm install
 
-## Deploy on Vercel
+Run development server:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+npm run dev
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open:
+
+http://localhost:3000
+Available Scripts
+npm run dev
+npm run build
+npm run start
+npm run lint
+Author
+
+Larimar4you
