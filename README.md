@@ -1,13 +1,14 @@
-**_ NoteHub — Auth & Notes Management _**
+# NoteHub — Auth & Notes Management
 
 A full-featured note management application built with Next.js App Router.
 This version introduces authentication, protected routes, and user-specific data handling.
 
-🔗 Repository
+### 🔗 Repository
 
 https://github.com/Larimar4you/09-auth
 
-🛠 Tech Stack
+### 🛠 Tech Stack
+
 Framework: Next.js (App Router)
 Language: TypeScript
 State Management: Zustand, TanStack Query
@@ -15,7 +16,7 @@ HTTP Client: Axios
 Styling: CSS Modules
 Deployment: Vercel
 
-**_ Architecture Decisions _**
+## Architecture Decisions
 
 App Router (Next.js)
 
@@ -31,7 +32,7 @@ Authentication via Cookies
 
 Authentication is implemented using HTTP-only cookies instead of localStorage.
 
-Why:
+### Why:
 
 More secure against XSS attacks
 Automatically included in requests
@@ -80,7 +81,7 @@ Improves developer experience
 Makes the codebase more maintainable
 SSR + CSR Combination
 
-The project uses both:
+### The project uses both:
 
 Server-Side Rendering (SSR) for initial data load
 Client-Side Rendering (CSR) for interactivity
@@ -91,7 +92,7 @@ Better performance
 Improved SEO
 Smooth user experience
 
-** Project Structure **
+## Project Structure
 
 app/
 (auth)/ # Public authentication routes (login, register)
@@ -106,12 +107,12 @@ store/ # Zustand global store
 
 types/ # Shared TypeScript types
 
-**Overview**
+## Overview
 
 NoteHub is a modern fullstack application that combines authentication with note management.
 It demonstrates how to build scalable applications using the App Router architecture with both SSR and CSR.
 
-The project focuses on:
+### The project focuses on:
 
 clean structure
 state management
@@ -128,7 +129,8 @@ Protected pages
 User profile page
 Edit profile functionality
 
-** Notes **
+### Notes
+
 Notes list
 Search functionality
 Pagination
@@ -144,22 +146,7 @@ HTTP Client: Axios
 Styling: CSS Modules
 Deployment: Vercel
 
-** Project Structure **
-
-app/
-(auth routes)/ # Public authentication pages
-(private routes)/ # Protected user pages
-api/ # API routes
-
-components/ # Reusable UI components
-
-lib/
-api/ # API layer
-store/ # Zustand store
-
-types/ # TypeScript types
-
-** Environment Variables **
+## Environment Variables
 
 Create a .env.local file in the root:
 
@@ -179,13 +166,15 @@ Open in browser:
 
 http://localhost:3000
 
-** Available Scripts **
+## Available Scripts
+
 npm run dev # Development server
 npm run build # Production build
 npm run start # Run production build
 npm run lint # Lint project
 
-** Key Concepts Demonstrated **
+## Key Concepts Demonstrated
+
 Authentication & authorization flow
 Protected routing in Next.js App Router
 Server-side & client-side rendering
@@ -193,11 +182,12 @@ Global state management with Zustand
 Data fetching & caching with TanStack Query
 Scalable project structure
 
-** Future Improvements **
+## Future Improvements
+
 OAuth (Google / GitHub)
 Role-based access control
 API error handling improvements
 Unit & integration testing
 UI/UX enhancements
 
-**Author: Larimar4you **
+## Author: Larimar4you
