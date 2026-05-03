@@ -7,6 +7,105 @@ This version introduces authentication, protected routes, and user-specific data
 
 https://github.com/Larimar4you/09-auth
 
+🛠 Tech Stack
+Framework: Next.js (App Router)
+Language: TypeScript
+State Management: Zustand, TanStack Query
+HTTP Client: Axios
+Styling: CSS Modules
+Deployment: Vercel
+
+**_ Architecture Decisions _**
+
+App Router (Next.js)
+
+The project uses the App Router to leverage modern Next.js capabilities such as:
+
+Server Components
+Nested layouts
+Clear separation of public and private routes
+
+This improves scalability and aligns the project with current Next.js best practices.
+
+Authentication via Cookies
+
+Authentication is implemented using HTTP-only cookies instead of localStorage.
+
+Why:
+
+More secure against XSS attacks
+Automatically included in requests
+Better suited for SSR
+Separation of Public and Private Routes
+
+The application structure clearly separates:
+
+(auth routes) → public pages (login, registration)
+(private routes) → protected user content
+
+Why:
+
+Improves maintainability
+Simplifies access control
+Makes routing logic predictable
+State Management Strategy
+
+The project uses a combination of:
+
+Zustand → for local/global UI state (e.g. draft notes)
+TanStack Query → for server state (data fetching, caching)
+
+Why:
+
+Clear separation of concerns
+Avoids overloading one tool for all tasks
+Scales better in real-world applications
+API Layer Abstraction
+
+API calls are abstracted in a dedicated layer (lib/api).
+
+Why:
+
+Keeps components clean
+Centralizes request logic
+Simplifies future changes (e.g. switching backend)
+Type Safety with TypeScript
+
+The entire project uses TypeScript.
+
+Why:
+
+Reduces runtime errors
+Improves developer experience
+Makes the codebase more maintainable
+SSR + CSR Combination
+
+The project uses both:
+
+Server-Side Rendering (SSR) for initial data load
+Client-Side Rendering (CSR) for interactivity
+
+Why:
+
+Better performance
+Improved SEO
+Smooth user experience
+
+** Project Structure **
+
+app/
+(auth)/ # Public authentication routes (login, register)
+(private)/ # Protected routes (user content)
+api/ # API route handlers
+
+components/ # Reusable UI components
+
+lib/
+api/ # API abstraction layer
+store/ # Zustand global store
+
+types/ # Shared TypeScript types
+
 **Overview**
 
 NoteHub is a modern fullstack application that combines authentication with note management.
