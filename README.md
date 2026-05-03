@@ -44,7 +44,7 @@ The application structure clearly separates:
 (auth routes) → public pages (login, registration)
 (private routes) → protected user content
 
-Why:
+### Why:
 
 Improves maintainability
 Simplifies access control
@@ -56,7 +56,7 @@ The project uses a combination of:
 Zustand → for local/global UI state (e.g. draft notes)
 TanStack Query → for server state (data fetching, caching)
 
-Why:
+### Why:
 
 Clear separation of concerns
 Avoids overloading one tool for all tasks
@@ -65,7 +65,7 @@ API Layer Abstraction
 
 API calls are abstracted in a dedicated layer (lib/api).
 
-Why:
+### Why:
 
 Keeps components clean
 Centralizes request logic
@@ -74,7 +74,7 @@ Type Safety with TypeScript
 
 The entire project uses TypeScript.
 
-Why:
+### Why:
 
 Reduces runtime errors
 Improves developer experience
@@ -86,7 +86,7 @@ SSR + CSR Combination
 Server-Side Rendering (SSR) for initial data load
 Client-Side Rendering (CSR) for interactivity
 
-Why:
+### Why:
 
 Better performance
 Improved SEO
@@ -95,17 +95,24 @@ Smooth user experience
 ## Project Structure
 
 app/
-(auth)/ # Public authentication routes (login, register)
-(private)/ # Protected routes (user content)
-api/ # API route handlers
+(auth)/
+login/page.tsx
+register/page.tsx
 
-components/ # Reusable UI components
+(private)/
+notes/page.tsx
+notes/[id]/page.tsx
+profile/page.tsx
 
+api/
+auth/route.ts
+notes/route.ts
+
+components/
 lib/
-api/ # API abstraction layer
-store/ # Zustand global store
-
-types/ # Shared TypeScript types
+api/
+store/
+types/
 
 ## Overview
 
@@ -190,4 +197,4 @@ API error handling improvements
 Unit & integration testing
 UI/UX enhancements
 
-## Author: Larimar4you
+### Author: Larimar4you
