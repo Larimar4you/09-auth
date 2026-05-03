@@ -1,82 +1,104 @@
-# NoteHub — 09 Auth
+**_ NoteHub — Auth & Notes Management _**
 
-A note management application built with Next.js App Router.  
-This version adds authentication, protected routes, user profile pages, and cookie-based session handling.
+A full-featured note management application built with Next.js App Router.
+This version introduces authentication, protected routes, and user-specific data handling.
 
-## Repository
+🔗 Repository
 
 https://github.com/Larimar4you/09-auth
 
-## Technologies
+**Overview**
 
-- Next.js
-- React
-- TypeScript
-- Axios
-- TanStack Query
-- Zustand
-- CSS Modules
-- Vercel
+NoteHub is a modern fullstack application that combines authentication with note management.
+It demonstrates how to build scalable applications using the App Router architecture with both SSR and CSR.
 
-## Features
+The project focuses on:
 
-- User registration
-- User login
-- User logout
-- Cookie-based authentication
-- Protected private routes
-- Public auth routes
-- User profile page
-- Edit profile page
-- Notes list with search, pagination, and tag filtering
-- Note details page
-- Create note page
-- Draft saving with Zustand
-- SSR and CSR support
+clean structure
+state management
+real-world authentication flow
+Features
+Authentication
+User registration
+User login & logout
+Cookie-based session handling
+Public & private route separation
+Protected pages
 
-## Project Structure
+👤 User
+User profile page
+Edit profile functionality
 
-```txt
+** Notes **
+Notes list
+Search functionality
+Pagination
+Tag filtering
+Note details page
+Create note page
+Draft saving (via Zustand)
+🛠 Tech Stack
+Framework: Next.js (App Router)
+Language: TypeScript
+State Management: Zustand, TanStack Query
+HTTP Client: Axios
+Styling: CSS Modules
+Deployment: Vercel
+
+** Project Structure **
+
 app/
-  (auth routes)/
-  (private routes)/
-  api/
-components/
+(auth routes)/ # Public authentication pages
+(private routes)/ # Protected user pages
+api/ # API routes
+
+components/ # Reusable UI components
+
 lib/
-  api/
-  store/
-types/
+api/ # API layer
+store/ # Zustand store
 
+types/ # TypeScript types
 
-```
+** Environment Variables **
 
-Environment Variables
-
-Create .env.local in the project root:
+Create a .env.local file in the root:
 
 NEXT_PUBLIC_API_URL=http://localhost:3000
 
-For Vercel, set:
+For production (Vercel):
 
 NEXT_PUBLIC_API_URL=https://your-project-name.vercel.app
-Getting Started
 
-Install dependencies:
-
+▶️ Getting Started
+Install dependencies
 npm install
-
-Run development server:
-
+Run development server
 npm run dev
 
-Open:
+Open in browser:
 
 http://localhost:3000
-Available Scripts
-npm run dev
-npm run build
-npm run start
-npm run lint
-Author
 
-Larimar4you
+** Available Scripts **
+npm run dev # Development server
+npm run build # Production build
+npm run start # Run production build
+npm run lint # Lint project
+
+** Key Concepts Demonstrated **
+Authentication & authorization flow
+Protected routing in Next.js App Router
+Server-side & client-side rendering
+Global state management with Zustand
+Data fetching & caching with TanStack Query
+Scalable project structure
+
+** Future Improvements **
+OAuth (Google / GitHub)
+Role-based access control
+API error handling improvements
+Unit & integration testing
+UI/UX enhancements
+
+**Author: Larimar4you **
