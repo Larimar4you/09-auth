@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Header() {
   return (
     <header className={css.header}>
-      <Link href="/" aria-label="Home" className={css.logo}>
+      <Link href="/" aria-label="Home" className={css.headerlink}>
         NoteHub
       </Link>
 
