@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import { useDebounce } from "use-debounce";
 
-import { getNotesByTag } from "@/lib/api";
+import { fetchNotes } from "@/lib/api/clientApi";
 import NoteList from "../NoteList/NoteList";
 import SearchBox from "../SearchBox/SearchBox";
 import Pagination from "../Pagination/Pagination";
@@ -20,7 +20,7 @@ export default function NotesPage({ tag }: Props) {
 
   const { data, isLoading, isError, isSuccess } = useQuery({
     queryKey: ["notes", currentPage, debouncedQuery, tag],
-    queryFn: () => getNotesByTag(currentPage, debouncedQuery, tag),
+    queryFn: () => fetchNotes(currentPage, debouncedQuery, tag),
     placeholderData: keepPreviousData,
   });
 

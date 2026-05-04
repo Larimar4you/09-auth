@@ -5,7 +5,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 
-import { getNotesByTag } from "@/lib/api";
+import { fetchNotes } from "@/lib/api/serverApi";
 import NotesClient from "./Notes.client";
 
 type Props = {
@@ -49,7 +49,7 @@ export default async function FilterNotesPage({ params }: Props) {
 
   await queryClient.prefetchQuery({
     queryKey: ["notes", 1, "", tag],
-    queryFn: () => getNotesByTag(1, "", tag),
+    queryFn: () => fetchNotes(1, "", tag),
   });
 
   return (
