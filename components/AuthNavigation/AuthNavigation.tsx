@@ -7,7 +7,7 @@ import { logout } from "@/lib/api/clientApi";
 import { useRouter } from "next/navigation";
 
 export default function AuthNavigation() {
-  const clearAuth = useAuthStore((s) => s.clearAuth);
+  const clearAuth = useAuthStore((s) => s.clearIsAuth);
   const router = useRouter();
   const handleLogout = async () => {
     await logout();

@@ -1,17 +1,22 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
+
 import "./globals.css";
+
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import TanStackProvider from "@/components/TanStackProvider/TanStackprovider";
+import AuthProvider from "@/components/AuthProvider/AuthProvider";
 
 export const metadata: Metadata = {
   title: "NoteHub",
-  description: `NoteHub is a simple and efficient application designed for managing personal notes. It helps keep your thoughts organized and accessible`,
+  description:
+    "NoteHub is a simple and efficient application designed for managing personal notes. It helps keep your thoughts organized and accessible",
 
   openGraph: {
     title: "NoteHub",
-    description: `NoteHub is a simple and efficient application designed for managing personal notes. It helps keep your thoughts organized and accessible`,
+    description:
+      "NoteHub is a simple and efficient application designed for managing personal notes. It helps keep your thoughts organized and accessible",
     images: [
       {
         url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
@@ -32,6 +37,7 @@ const roboto = Roboto({
 
 export default function RootLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
   modal: React.ReactNode;
@@ -40,9 +46,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={roboto.variable}>
         <TanStackProvider>
-          <Header />
-          {children}
-          <Footer />
+          <AuthProvider>
+            <Header />
+            {children}
+            {modal}
+            <Footer />
+          </AuthProvider>
         </TanStackProvider>
       </body>
     </html>

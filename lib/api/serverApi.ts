@@ -1,5 +1,7 @@
+import { cookies } from "next/headers";
+
 import { api } from "./api";
-import type { Note, NewNote } from "@/types/note";
+import type { Note } from "@/types/note";
 import type { User } from "@/types/user";
 
 export interface NotesResponse {
@@ -7,22 +9,22 @@ export interface NotesResponse {
   totalPages: number;
 }
 
-export interface AuthData {
-  email: string;
-  password: string;
-}
-
 export const fetchNotes = async (
   page = 1,
   search = "",
   tag?: string,
 ): Promise<NotesResponse> => {
+  const cookieStore = await cookies();
+
   const response = await api.get<NotesResponse>("/notes", {
     params: {
       page,
       perPage: 12,
-      search,
-      tag,
+      search: search || undefined,
+      tag: tag || undefined,
+    },
+    headers: {
+      Cookie: cookieStore.toString(),
     },
   });
 
@@ -30,45 +32,37 @@ export const fetchNotes = async (
 };
 
 export const fetchNoteById = async (id: string): Promise<Note> => {
-  const response = await api.get<Note>(`/notes/${id}`);
+  const cookieStore = await cookies();
+
+  const response = await api.get<Note>(`/notes/${id}`, {
+    headers: {
+      Cookie: cookieStore.toString(),
+    },
+  });
+
   return response.data;
 };
 
-export const createNote = async (newNote: NewNote): Promise<Note> => {
-  const response = await api.post<Note>("/notes", newNote);
+export const getServerMe = async (): Promise<User> => {
+  const cookieStore = await cookies();
+
+  const response = await api.get<User>("/users/me", {
+    headers: {
+      Cookie: cookieStore.toString(),
+    },
+  });
+
   return response.data;
 };
 
-export const deleteNote = async (id: string): Promise<Note> => {
-  const response = await api.delete<Note>(`/notes/${id}`);
-  return response.data;
-};
+export const checkServerSession = async () => {
+  const cookieStore = await cookies();
 
-export const register = async (data: AuthData): Promise<User> => {
-  const response = await api.post<User>("/auth/register", data);
-  return response.data;
-};
+  const response = await api.get("/auth/session", {
+    headers: {
+      Cookie: cookieStore.toString(),
+    },
+  });
 
-export const login = async (data: AuthData): Promise<User> => {
-  const response = await api.post<User>("/auth/login", data);
-  return response.data;
-};
-
-export const logout = async (): Promise<void> => {
-  await api.post("/auth/logout");
-};
-
-export const checkSession = async (): Promise<User | null> => {
-  const response = await api.get<User | null>("/auth/session");
-  return response.data;
-};
-
-export const getMe = async (): Promise<User> => {
-  const response = await api.get<User>("/users/me");
-  return response.data;
-};
-
-export const updateMe = async (data: Partial<User>): Promise<User> => {
-  const response = await api.patch<User>("/users/me", data);
-  return response.data;
+  return response;
 };
